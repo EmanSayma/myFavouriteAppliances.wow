@@ -26,13 +26,23 @@
         </li>
       @if (Route::has('login'))
             @auth
-                <a href="{{ url('/dashboard') }}" class="btn btn-default  btn-with-icon"><i class="fa fa-heart"></i><br>Wishlist</a>
+                <a href="{{ url('/dashboard') }}" class="btn btn-default btn-with-icon"><i class="fa fa-heart"></i><br>Wishlist</a>               
+                <a href="{{ route('logout') }}" class="btn btn-default btn-with-icon"
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                             <i class="fa fa-sign-out"></i><br>
+                    Logout
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+                                   
             @else
-                <a href="{{ route('login') }}" class="btn btn-default  btn-with-icon"><i class="fa fa-user-circle"></i> <br>Login/Register</a>
-                <a href="{{ route('register') }}" class="btn btn-default btn-with-icon"><i class="fa fa-shopping-cart"></i> <br>Your Cart</a>
+                <a href="{{ route('login') }}"  class="btn btn-default  btn-with-icon"><i class="fa fa-user-circle"></i> <br>Login/Register</a>
+                <a href="" class="btn btn-default btn-with-icon"><i class="fa fa-shopping-cart"></i> <br>Your Cart</a>
             @endauth
       @endif
     </div>
   </div>
 </nav> <!--End Nav-->
- @include('auth.login')

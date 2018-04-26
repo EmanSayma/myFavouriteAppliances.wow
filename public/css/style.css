@@ -364,3 +364,15 @@ ul.social-icons {
 	color: #8f9399;
 	font-size: 12px;
 }
+
+/*************login-page****************************/
+#login-page{
+    margin-top: 90px;
+    justify-content: center;
+}
+
+.panel-heading{
+    font-size: 30px;
+    padding-top: 20px;
+    font-weight: bold;
+}

@@ -1,11 +1,14 @@
-@extends('layouts.app')
+@extends('website.layouts.master')
+@section('title', 'Reset Password')
 
 @section('content')
+  <section id="login-page">
+      @include('website.includes.slider')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header panel-heading">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.request') }}">
@@ -51,7 +54,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-danger btn-lg">
                                     {{ __('Reset Password') }}
                                 </button>
                             </div>
@@ -62,4 +65,5 @@
         </div>
     </div>
 </div>
+</section>
 @endsection

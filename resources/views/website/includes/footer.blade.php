@@ -70,5 +70,7 @@
         <!--End Footer-->
 
   <script src="/js/app.js"></script>
+    <script src="/js/functions/login-scripts.js"></script>
+
 
   @yield('scripts')
