@@ -190,6 +190,18 @@ a.btn-with-icon:hover{
         padding-left: 70px;
 
 }
+#social-links{
+    margin-top:10px;
+}
+#social-links span{
+    padding-left: 20px;
+}
+a.learn {
+    color: green;
+    font-weight: bold;
+    font-style: underline;
+    font-size: 16px;
+}
 .stock i {
     font-size: 30px;
     color: green;

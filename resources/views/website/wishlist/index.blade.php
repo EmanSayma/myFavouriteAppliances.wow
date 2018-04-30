@@ -34,11 +34,11 @@
 		    		  <span>Buy Now</span>
 					  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 					</a>
-					<a href="#" class="btn btn-primary btn-block btn-lg">
-		    		  <span>Share this product</span>
-					  <i class="fa fa-share" aria-hidden="true"></i>
-					</a>
-					<a href="/products/{{ $wishlist->cat_slug }}/{{ $wishlist->slug }}">Learn More</a>
+					<div id="social-links">
+						<a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:8000/products/{{ $wishlist->cat_slug }}/{{ $wishlist->slug }}" class="social-button my-class btn btn-primary btn-block btn-lg">Share to Facebook<span class="fa fa-facebook-official"></span></a>
+					</div>
+
+					<a href="/products/{{ $wishlist->cat_slug }}/{{ $wishlist->slug }}" class="learn">Learn More</a>
 		    	</div>
 		    </div>
 		    @endforeach
@@ -48,6 +48,11 @@
 	  </div>  	
 	</div>
 </section>
+
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/share.js') }}"></script>
 
 @endsection
 
