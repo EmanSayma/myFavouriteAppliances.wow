@@ -18,7 +18,7 @@
 	    		<h5>Found {{count($category->products) }} products</h5>
 	    	</div>
 	    	<div class="col-md-3">
-	    		<select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" class="form-control" name="arrange_method" id="arrange_method">
+	    		<select onchange="" class="form-control" name="arrange_method" id="arrange_method">
 	    		   <option value="">Select...</option>
 	    		   <option value='/products/{{ $category->cat_slug }}?field="price"&order="desc"'>Price High to Low</option>
 	    		   	<option value='/products/{{ $category->cat_slug }}?field="price"&order="asc"'>Price Low to High</option>          
@@ -28,6 +28,8 @@
 	    	</div>
 	    </div>
 	    <hr>
+	@if(count($products) > 0)
+	    <div>
 	    <div class="product-list">
 	    	@foreach($products as $product)
 		    <div class="row product-list-item">
@@ -56,6 +58,11 @@
             {{$products->links()}}
            </div>
         </div>
+    </div>
+    @else
+		 <h1>No products found</h1>
+	 @endif
+        
 	  </div>  	
 	</div>
 </section>
@@ -63,5 +70,6 @@
 @endsection
 
 @section('scripts')
+<script src="/js/functions/product-arrange.js"></script>
 <script src="/js/functions/ajax-wishlist.js"></script>
 @endsection

@@ -20,8 +20,9 @@
            Categories
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/products/small-appliances">Small Appliances</a>
-            <a class="dropdown-item" href="/products/dishwashers">Dishwashers</a>
+            @foreach ($categories as $category)
+              <a class="dropdown-item" href="/products/{{ $category->cat_slug }}">{{ $category->name }}</a>
+            @endforeach
           </div>
         </li>
       @if (Route::has('login'))

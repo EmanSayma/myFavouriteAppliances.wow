@@ -32,34 +32,10 @@ $(document).ready(function(){
             }   
 
        });
-   /////////////////////////////////////////////////////////////////////////
-       } /*elseif ($( ".btn-wish" ).hasClass( "btn-danger" )){
-        // remove item from wishlist
-          var form_data={
-                    'product_id':$('input#product_id').val(),
-                    'button_action':'delete'
-                     };
-
-		       $.ajax({
-		         url:'/products/deleteFromWishlist',
-		         method:"get",
-		         data:form_data,
-		         dataType:"json",
-		         
-		            success:function(data)
-		             {          
-		               $( ".btn-wish" ).removeClass( "btn-danger" ).addClass( "btn-secondary" );
-                       $( ".btn-wish" ).html('<span>Add to Wishlist</span>');
-                      $( ".button_action" ).val('store');
-		            }   
-
-		       });
+       }
        
-
-
-       }*/
-
-       
-
    });
+
+    //////////////////////////////////////////////////////////////////
+
 });

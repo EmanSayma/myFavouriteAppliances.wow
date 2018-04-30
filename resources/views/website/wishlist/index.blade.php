@@ -30,13 +30,10 @@
 		    	</div>
 		    	<div class="col-md-3">
 		    		<h3>€ {{ $wishlist->price }}</h3>
-		    		<a href="#" class="btn btn-success btn-block btn-lg btn-buy">
-		    		  <span>Buy Now</span>
-					  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-					</a>
 					<div id="social-links">
 						<a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:8000/products/{{ $wishlist->cat_slug }}/{{ $wishlist->slug }}" class="social-button my-class btn btn-primary btn-block btn-lg">Share to Facebook<span class="fa fa-facebook-official"></span></a>
 					</div>
+				
 
 					<a href="/products/{{ $wishlist->cat_slug }}/{{ $wishlist->slug }}" class="learn">Learn More</a>
 		    	</div>

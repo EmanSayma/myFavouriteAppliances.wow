@@ -15,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        view()->composer('website.includes.nav', function($view){
+           $view->with('categories',\App\Category::all());
+        });
     }
 
     /**
