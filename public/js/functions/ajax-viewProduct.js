@@ -18,7 +18,7 @@
           $('#stock').text(data.stock);
           $('#features').html(data.features);
           $('#overview').html(data.overview);
-          $('#url').attr('href','/products/'+data.category+'/'+data.slug);
+          $('#url').attr('href','/products/'+data.category_slug+'/'+data.slug);
 
 
           $('img').attr('src',`/storage/cover_images/${data.cover_image}`);

@@ -1,6 +1,6 @@
 <!-- Nav-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand mr-2" href="#">
+  <a class="navbar-brand mr-2" href="/">
     <img src="/images/logo.png" width="200" height="60" class="d-inline-block align-top" alt="MyFavouriteAppliances.wow">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,13 +20,13 @@
            Categories
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Small Appliances</a>
-            <a class="dropdown-item" href="#">Dishwashers</a>
+            <a class="dropdown-item" href="/products/small-appliances">Small Appliances</a>
+            <a class="dropdown-item" href="/products/dishwashers">Dishwashers</a>
           </div>
         </li>
       @if (Route::has('login'))
             @auth
-                <a href="{{ url('/dashboard') }}" class="btn btn-default btn-with-icon"><i class="fa fa-heart"></i><br>Wishlist</a>               
+                <a href="{{ url('wishlist') }}" class="btn btn-default btn-with-icon"><i class="fa fa-heart"></i><br>Wishlist</a>               
                 <a href="{{ route('logout') }}" class="btn btn-default btn-with-icon"
                     onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">

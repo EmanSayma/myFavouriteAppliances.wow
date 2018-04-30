@@ -165,6 +165,7 @@ class ProductsController extends Controller
         'cover_image'=>$product->cover_image,
         'category_id'=>$product->category_id,
         'category'=>$product->category->name,
+        'category_slug'=>$product->category->cat_slug,
         'date'=>date('M j,Y', strtotime($product->created_at))
 
       );

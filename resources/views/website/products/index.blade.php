@@ -9,7 +9,7 @@
 	      	 <nav aria-label="breadcrumb">
 			   <ol class="breadcrumb">
 			     <li class="breadcrumb-item"><a href="/">Home</a></li>
-			     <li class="breadcrumb-item active" aria-current="page">{{ $category->name }}</a></li>
+			     <li class="breadcrumb-item active" aria-current="page">{{ $category->name }}</li>
 			   </ol>
 			</nav>
 	    </div>
@@ -18,10 +18,11 @@
 	    		<h5>Found {{count($category->products) }} products</h5>
 	    	</div>
 	    	<div class="col-md-3">
-	    		<select class="form-control" name="arrange_method" id="arrange_method"> 
-	    		   <option>Price High to Low</option>
-	    		   	<option>Price Low to High</option>          
-	    		   <option>Alphabetical order of Products</option>          
+	    		<select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" class="form-control" name="arrange_method" id="arrange_method">
+	    		   <option value="">Select...</option>
+	    		   <option value='/products/{{ $category->cat_slug }}?field="price"&order="desc"'>Price High to Low</option>
+	    		   	<option value='/products/{{ $category->cat_slug }}?field="price"&order="asc"'>Price Low to High</option>          
+	    		   <option value='/products/{{ $category->cat_slug }}?field="name"&order="asc"'>Alphabetical order of Products</option>          
           
 	            </select>
 	    	</div>
@@ -41,10 +42,10 @@
 		    	<div class="col-md-3">
 		    		<h3>€ {{ $product->price }}</h3>
 		    		<a href="#" class="btn btn-success btn-block btn-lg btn-buy">
-		    		  <span><strong>Buy Now</strong></span>
+		    		  <span>Buy Now</span>
 					  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 					</a>
-					<a href="/products/{{ $category->name }}/{{ $product->slug }}">Learn More</a>
+					<a href="/products/{{ $category->cat_slug }}/{{ $product->slug }}">Learn More</a>
 		    	</div>
 		    </div>
 		    @endforeach
@@ -59,4 +60,8 @@
 	</div>
 </section>
 
+@endsection
+
+@section('scripts')
+<script src="/js/functions/ajax-wishlist.js"></script>
 @endsection

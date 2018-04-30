@@ -32,4 +32,15 @@ class Product extends Model
     {
         return $query->where('slug','=',$slug);
     }
+
+
+    public function scopeFilter($query, $filters)
+    {
+
+       if($field=  $filters['field'] && $order= $filters['order']   )
+       {
+          $query->orderBy($field,$order);
+        }
+
+    }
 }

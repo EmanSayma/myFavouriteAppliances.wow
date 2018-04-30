@@ -186,6 +186,10 @@ a.btn-with-icon:hover{
 .btn-buy i {
     padding-left: 100px;
 }
+.btn-wish i{
+        padding-left: 70px;
+
+}
 .stock i {
     font-size: 30px;
     color: green;

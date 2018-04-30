@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-   protected $fillable= ['name'];
+   protected $fillable= ['name','cat_slug'];
 
    public function products()
     {
@@ -15,15 +15,15 @@ class Category extends Model
 
 
      /**
-     *    Scope a query to select category by its name
+     *    Scope a query to select category by its slug
      * @param $query
      * @param $name
      * @return mixed
      */
 
-     public function scopeCatName($query,$name)
+     public function scopeCatSlug($query,$cat_slug)
     {
-        return $query->where('name','=',$name);
+        return $query->where('cat_slug','=',$cat_slug);
     }
 
 }

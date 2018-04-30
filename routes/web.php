@@ -57,9 +57,16 @@ Route::namespace('Admin')->group(function(){
 
   ///////////////////////////////Website Routes//////////////////////////////////////////////   
 Route::namespace('Website')->group(function(){
-   Route::get('products/{name}/{slug}','ProductsController@show')->where('slug','[\w\d\-\_]+')->name('products.product');
+   Route::get('/products/{cat_slug}/{slug}','ProductsController@show')
+            ->where('slug','[\w\d\-\_]+')
+            ->where('cat_slug','[\w\d\-\_]+');
 
-   Route::get('products/{name}','ProductsController@index')->name('products.cat');
+   Route::get('/products/{name}','ProductsController@index');
+
+  Route::post('/products/addToWishlist','WishlistController@store');
+
+
+    Route::get('/wishlist','WishlistController@index');
 
 
 });   

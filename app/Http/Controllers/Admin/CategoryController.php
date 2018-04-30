@@ -50,7 +50,6 @@ class CategoryController extends Controller
     {
          $validation = Validator::make($request->all(),[
          'name'=>['required','min:3','max:255',Rule::unique('categories','name')->ignore($request->get('id'))],
-
       ]);
 
 
@@ -69,7 +68,10 @@ class CategoryController extends Controller
           $fields=$request->all();      
          if($request->get('button_action')== "insert")
          {  
-          $category= Category::create($fields);
+          $category= Category::create([
+            'name'=>$request->get('name'),
+            'cat_slug'=>str_slug($request->get('name'), '-')
+          ]);
           $success_output="New Category Added successfuly";
          }
           if($request->get('button_action')== "update")
@@ -122,7 +124,6 @@ class CategoryController extends Controller
       $category= Category::find($id);
       $output= array(
         'name'=>$category->name,
-
         'id'=>$category->id
 
       );

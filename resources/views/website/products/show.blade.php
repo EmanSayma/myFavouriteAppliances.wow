@@ -10,7 +10,7 @@
 	      	 <nav aria-label="breadcrumb">
 			   <ol class="breadcrumb">
 			     <li class="breadcrumb-item"><a href="/">Home</a></li>
-			     <li class="breadcrumb-item"><a href="/products/{{ $category->name }}">{{ $product->category->name }}</a></li>
+			     <li class="breadcrumb-item"><a href="/products/{{ $category->cat_slug }}">{{ $product->category->name }}</a></li>
 			     <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
 			   </ol>
 			</nav>
@@ -27,9 +27,25 @@
 	    	<div class="col-md-4 product-details">
 	    		<h1>€ {{ $product->price }}</h1>
 	    		<a href="#" class="btn btn-success btn-block btn-lg btn-buy">
-	    		  <span><strong>Buy Now</strong></span>
+	    		  <span>Buy Now</span>
 				  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 				</a>
+				@auth
+				   <form method="post" id="wishlist-form" >
+				   	{{csrf_field()}}
+				   	<input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
+                    <input type="hidden" name="button_action" id="button_action" value=""> 
+                    @if($wishlist=='empty') 
+					  <button type="submit" class="btn btn-block btn-secondary btn-lg btn-wish">
+		    		     <span>Add to Wishlist</span>
+					  </button>	
+					 @elseif($wishlist=='notEmpty') 
+					 	<button type="submit" class="btn btn-block btn-danger btn-lg btn-wish" disabled="disabled">
+		    		     <i class="fa fa-heart " aria-hidden="true"></i>
+					  </button>
+					  @endif
+				  </form>
+				@endauth
 	    		<h2 class="stock"><i class="fa fa-check-circle"></i><strong>In Stock</strong></h2>
 	    		<h3 class="brand">{{ $product->brand }}</h3>
 	    		<h3 class="features-h">Key Features : </h3>
@@ -70,6 +86,7 @@
 @endsection
 
 @section('scripts')
+<script src="/js/functions/ajax-wishlist.js"></script>
 <script src="/js/libraries/jquery.elevateZoom-3.0.8.min.js"></script>
 <script type="text/javascript">
     $("#zoom_01").elevateZoom({
